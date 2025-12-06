@@ -1,10 +1,82 @@
+const IconAllIndia = () => (
+  <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="#FF6B6B" fill="#FF6B6B" fillOpacity="0.2"/>
+    <circle cx="12" cy="9" r="2.5" stroke="#4ECDC4" fill="#4ECDC4"/>
+  </svg>
+)
+
+const IconSpiritual = () => (
+  <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 2L4 6v4l8 4 8-4V6l-8-4z" stroke="#F093FB" fill="#F093FB" fillOpacity="0.2"/>
+    <path d="M4 14l8 4 8-4" stroke="#F5576C" fill="#F5576C" fillOpacity="0.2"/>
+    <path d="M4 10l8 4 8-4" stroke="#FF6B9D" fill="#FF6B9D" fillOpacity="0.2"/>
+    <circle cx="12" cy="6" r="1" fill="#F093FB"/>
+  </svg>
+)
+
+const IconCar = () => (
+  <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="5" cy="17" r="2" stroke="#4FACFE" fill="#4FACFE"/>
+    <circle cx="19" cy="17" r="2" stroke="#00F2FE" fill="#00F2FE"/>
+    <path d="M17 17H7l-2-5H2l2-6h14l2 6h-3l-2 5z" stroke="#4FACFE" fill="#4FACFE" fillOpacity="0.2"/>
+    <path d="M7 10h10" stroke="#00F2FE"/>
+  </svg>
+)
+
+const IconMountain = () => (
+  <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M8 3l4 8 5-5 5 15H2L8 3z" stroke="#A8EDEA" fill="#FED6E3" fillOpacity="0.4"/>
+  </svg>
+)
+
+const IconBeach = () => (
+  <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M2 18c1.5-1.5 4-3 6-2.5s3.5 2 5.5 1.5c1.5-.5 3-1 4.5-.5s3 1 3 1" stroke="#43E97B"/>
+    <path d="M2 15c1.5-1.5 4-3 6-2.5s3.5 2 5.5 1.5c1.5-.5 3-1 4.5-.5s3 1 3 1" stroke="#38F9D7"/>
+    <path d="M2 12c1.5-1.5 4-3 6-2.5s3.5 2 5.5 1.5c1.5-.5 3-1 4.5-.5s3 1 3 1" stroke="#43E97B"/>
+    <circle cx="12" cy="10" r="1.5" stroke="#38F9D7" fill="#38F9D7"/>
+    <circle cx="18" cy="8" r="1.5" stroke="#43E97B" fill="#43E97B"/>
+  </svg>
+)
+
+const IconWellness = () => (
+  <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="10" stroke="#FA709A" fill="#FEE140" fillOpacity="0.3"/>
+    <path d="M12 8v8M8 12h8" stroke="#FA709A"/>
+  </svg>
+)
+
 const menuItems = [
-  { icon: '🇮🇳', label: 'All India Trips', hasDropdown: true },
-  { icon: '🏔️', label: 'Himalayan Escapes', hasDropdown: true },
-  { icon: '🌊', label: 'Beach & Island Breaks', hasDropdown: false },
-  { icon: '🌿', label: 'Wellness Retreats', hasDropdown: false },
-  { icon: '🚐', label: 'Weekend Getaways', hasDropdown: false },
-  { icon: '🕉️', label: 'Spiritual Trails', hasDropdown: true }
+  { 
+    label: 'All India Trips', 
+    hasDropdown: true,
+    Icon: IconAllIndia
+  },
+  { 
+    label: 'Spiritual Trails', 
+    hasDropdown: true,
+    Icon: IconSpiritual
+  },
+  { 
+    label: 'Car Booking', 
+    hasDropdown: false,
+    Icon: IconCar
+  },
+  { 
+    label: 'Himalayan Escapes', 
+    hasDropdown: true,
+    Icon: IconMountain
+  },
+  { 
+    label: 'Beach & Island Breaks', 
+    hasDropdown: false,
+    Icon: IconBeach
+  },
+  { 
+    label: 'Wellness Retreats', 
+    hasDropdown: false,
+    Icon: IconWellness
+  }
 ]
 
 function Navbar() {
@@ -69,28 +141,33 @@ function Navbar() {
         </div>
 
         <div className="flex flex-wrap items-center gap-x-8 gap-y-3 text-sm font-semibold text-gray-900 lg:justify-between">
-          {menuItems.map((item) => (
-            <button
-              key={item.label}
-              type="button"
-              className="flex items-center gap-1.5 whitespace-nowrap transition-colors hover:text-[#017233]"
-            >
-              <span className="text-lg">{item.icon}</span>
-              <span>{item.label}</span>
-              {item.hasDropdown && (
-                <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
-                  <path
-                    d="M7 10l5 5 5-5"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              )}
-            </button>
-          ))}
+          {menuItems.map((item) => {
+            const IconComponent = item.Icon
+            return (
+              <button
+                key={item.label}
+                type="button"
+                className="flex items-center gap-1.5 whitespace-nowrap transition-colors hover:text-[#017233]"
+              >
+                <span className="flex-shrink-0">
+                  <IconComponent />
+                </span>
+                <span>{item.label}</span>
+                {item.hasDropdown && (
+                  <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
+                    <path
+                      d="M7 10l5 5 5-5"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                )}
+              </button>
+            )
+          })}
         </div>
       </div>
     </nav>
