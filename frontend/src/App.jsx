@@ -1,15 +1,16 @@
 import './App.css'
-import HeroVideo from './components/HeroVideo'
-import Navbar from './components/Navbar'
-import UpcomingTrips from './components/UpcomingTrips'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from './components/Home'
+import ProductPage from './components/ProductPage'
 
 function App() {
   return (
-    <div className="min-h-screen bg-white text-gray-900 font-sans">
-      <Navbar />
-      <HeroVideo />
-      <UpcomingTrips />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/trip/:id" element={<ProductPage />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
